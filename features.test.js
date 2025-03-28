@@ -1,4 +1,4 @@
-import { capitalizeStr, reverseStr, calculator, caesarCipher } from './features.js';
+import { capitalizeStr, reverseStr, calculator, caesarCipher, analyzeArray } from './features.js';
 
 test('Capitalize', () => {
   expect(capitalizeStr("apple")).toBe("Apple");
@@ -45,4 +45,19 @@ test('Caesar Cipher', () => {
   expect(caesarCipher("YxZzXy", 3)).toBe("BaCcAb");
   expect(caesarCipher('HeLLo', 3)).toBe('KhOOr');
   expect(caesarCipher('Hello, World!', 3)).toBe('Khoor, Zruog!');
+});
+
+test('Analyze Array', () => {
+  expect(analyzeArray([1, 2, 3, 4, 5])).toStrictEqual({
+    'average': 3,
+    'min': 1,
+    'max': 5,
+    'length': 5
+  });
+  expect(analyzeArray([1,8,3,4,2,6])).toStrictEqual({
+    average: 4,
+    min: 1,
+    max: 8,
+    length: 6
+  });
 });

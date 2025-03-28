@@ -40,4 +40,28 @@ function caesarCipher(str, key) {
   return (String.fromCharCode(...codeArr));
 }
 
-export { capitalizeStr, reverseStr, calculator, caesarCipher };
+function analyzeArray(arr) {
+  let resultObj = {};
+  let length = arr.length;
+  let sum = 0;
+  let min, max;
+  for (let i = 0; i < length; i++) {
+    sum += arr[i];
+    if (i === 0) {
+      min = arr[i];
+      max = arr[i];
+    } else {
+      if (arr[i] > max) { max = arr[i] }
+      if (arr[i] < min) { min = arr[i] }
+    }
+  }
+  let avg = (sum / length);
+  let finalAvg = Number.isInteger(avg) ? avg : avg.toFixed(1);
+  resultObj['average'] = finalAvg;
+  resultObj['min'] = min;
+  resultObj['max'] = max;
+  resultObj['length'] = length;
+  return resultObj;
+}
+
+export { capitalizeStr, reverseStr, calculator, caesarCipher, analyzeArray };
